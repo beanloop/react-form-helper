@@ -1,0 +1,25 @@
+{
+  "name": "react-form-helper",
+  "version": "0.1.0",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tscomp build",
+    "watch": "tscomp watch",
+    "test": "tscomp test",
+    "prepublish": "npm run build"
+  },
+  "repository": "https://github.com/beanloop/react-form-helper.git",
+  "author": "Beanloop AB",
+  "license": "MIT",
+  "devDependencies": {
+    "tscomp": "^0.7.4",
+    "tslint": "^4.0.2",
+    "tslint-config-beanloop": "^0.1.0"
+  },
+  "dependencies": {
+    "@types/ramda": "^0.0.2",
+    "@types/react": "^0.14.55",
+    "ramda": "^0.22.1",
+    "react": "^15.4.1"
+  }
+}
