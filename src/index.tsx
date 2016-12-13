@@ -1,5 +1,5 @@
 import {lensPath, path as getPath, set} from 'ramda'
-import {Component, cloneElement} from 'react'
+import {CSSProperties, Component, ReactChild, ReactElement, ReactType, cloneElement} from 'react'
 
 export const required = 'required'
 
@@ -11,7 +11,7 @@ function isEqual(a, b) {
   return true
 }
 
-function isValid(fields, updatedObject, serverValidation?) {
+function isValid(fields, updatedObject) {
   const validatedFields = [] as Array<any>
   let valid = true
 
@@ -40,19 +40,6 @@ function isValid(fields, updatedObject, serverValidation?) {
       }
       if (!fieldValid) {
         valid = false
-        continue
-      }
-    }
-
-    if (serverValidation) {
-      const serverError = serverValidation.find(e =>
-        (e.field && e.field === field.field) ||
-        (e.path && isEqual(e.path, field.path))
-      )
-
-      if (serverError && serverError.value === value) {
-        valid = false
-        validatedFields.push(Object.assign({}, field, {validationError: serverError.type}))
         continue
       }
     }
@@ -96,24 +83,58 @@ export function getValue(path, updatedObject) {
   return value
 }
 
-export type Properties = {
-  actions?: any
-  fields: any
-  object: any
-  onSave: Function
-  onUpdate?: Function
-  saveButton?: string
-  formComponent?: any
-  inputComponent?: any
-  buttonComponent?: any
-  style?: any
+export type FieldConfig = {
+  path: Array<string>
+  component?: ReactType
+  required?: boolean
+  error?: string
+  validationError?: string
+  validations?: {
+    [validationError: string]: {
+      text: string
+      validation?: (value) => boolean
+    }
+  }
+}
+
+export type Properties<T, I> = {
+  fields: Array<FieldConfig & I>
+  object: T
+  onSave: (savedObject: T) => Promise<any>|void
+  onUpdate?: (updatedObject: T, valid: boolean) => void
+  actions?: ((updatedObject: T) => ReactChild|Array<ReactChild>)|ReactChild|Array<ReactChild>
+  saveButton?: ReactChild
+  formComponent?: ReactType
+  inputComponent?: ReactType
+  buttonComponent?: ReactType
+  style?: CSSProperties
   formId?: string
   dirtyCheck?: boolean
   disabled?: boolean
   validationErrors?: any
 }
 
-export class FormHelper extends Component<Properties, {}> {
+export type Props<T> = {
+ fields: Array<ReactElement<any>|FieldConfig>
+ object: T
+ onSave: (savedObject: T) => Promise<any>|void
+ onUpdate?: (updatedObject: T, valid: boolean) => void
+ actions: Function
+ saveButton: {}
+ formId: string
+ dirtyCheck: {}
+ disabled: true
+}
+
+const BrowserButton = ({disabled, children}) =>
+  <button disabled={disabled}>
+    {children}
+  </button>
+
+const BrowserInput = ({error, onChange, ...props}) =>
+  <input {...props} onChange={e => onChange((e.target as HTMLInputElement).value)} />
+
+export class FormHelper extends Component<Properties<any, any>, {}> {
   unmounted = false
   state = {
     loading: false,
@@ -146,14 +167,12 @@ export class FormHelper extends Component<Properties, {}> {
       onUpdate,
       saveButton,
       formComponent: Form = 'form',
-      inputComponent: Input = 'input',
-      buttonComponent: Button = 'button',
+      inputComponent: Input = BrowserInput,
+      buttonComponent: Button = BrowserButton,
       formId,
       dirtyCheck,
       disabled,
-      validationErrors,
     } = this.props
-    // TODO: Handle loading
     let {updatedObject, loading} = this.state
 
     let changed = !!onUpdate || !dirtyCheck
@@ -162,7 +181,7 @@ export class FormHelper extends Component<Properties, {}> {
       ? object
       : updatedObject || object
 
-    const {validatedFields, valid} = isValid(fields, updatedObject, validationErrors)
+    const {validatedFields, valid} = isValid(fields, updatedObject)
 
     let {actions = null} = this.props
     if (typeof actions === 'function') {
@@ -187,12 +206,7 @@ export class FormHelper extends Component<Properties, {}> {
           if (!field) return null
           if (field.props) return cloneElement(field, {key: i})
 
-          const {path, validations, validationError} = field
-          const inputProps = Object.assign({}, field)
-          delete inputProps.field
-          delete inputProps.path
-          delete inputProps.validations
-          delete inputProps.validationError
+          const {path, validations, validationError, ...inputProps} = field
 
           if (getPath(path, updatedObject) !== getPath(field.path, object)) {
             changed = true
@@ -212,7 +226,7 @@ export class FormHelper extends Component<Properties, {}> {
               <Field value={value} disabled={disabled} {...inputProps} onChange={value => {
                 const newUpdatedObject = set(lensPath(path), value, updatedObject)
                 if (onUpdate) {
-                  onUpdate(newUpdatedObject, isValid(fields, newUpdatedObject))
+                  onUpdate(newUpdatedObject, isValid(fields, newUpdatedObject).valid)
                 } else {
                   this.setState({updatedObject: newUpdatedObject})
                 }
@@ -221,11 +235,10 @@ export class FormHelper extends Component<Properties, {}> {
           )
         })}
           {saveButton &&
-            <Button disabled={!changed || !valid || disabled}>
+            <Button object={updatedObject} loading={loading} disabled={!changed || !valid || disabled}>
               {saveButton}
             </Button>
           }
-          {actions}
       </Form>
     )
   }
