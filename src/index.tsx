@@ -11,12 +11,12 @@ function isEqual(a, b) {
   return true
 }
 
-function isValid(fields, updatedObject) {
-  const validatedFields = [] as Array<any>
+function isValid(fields: Array<FieldConfig>, updatedObject) {
+  const validatedFields = [] as Array<FieldConfig>
   let valid = true
 
   for (const field of fields) {
-    if (!field || field.props) {
+    if (!field || (field as any).props) {
       validatedFields.push(field)
       continue
     }
@@ -42,6 +42,10 @@ function isValid(fields, updatedObject) {
         valid = false
         continue
       }
+    }
+
+    if (field.error) {
+      valid = false
     }
 
     if (fieldValid) {
