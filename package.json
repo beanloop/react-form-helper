@@ -1,6 +1,6 @@
 {
   "name": "react-form-helper",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "React component for building forms with ease",
   "main": "dist/src/index.js",
   "scripts": {
