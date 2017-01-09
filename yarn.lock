@@ -1041,9 +1041,9 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-beanloop-doc-theme@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/beanloop-doc-theme/-/beanloop-doc-theme-0.1.0.tgz#ebdd528ef3b6b79c8ca44fbcc14d3bc2a4cfad3c"
+beanloop-doc-theme@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/beanloop-doc-theme/-/beanloop-doc-theme-0.2.0.tgz#43e133b7f13906fce113d9d3aaab0fac4cce153c"
 
 beeper@^1.0.0:
   version "1.1.1"
