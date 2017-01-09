@@ -8,7 +8,7 @@
     "watch": "tscomp watch",
     "test": "tscomp test",
     "prepublish": "npm run build",
-    "docs": "typedoc --tsconfig tsconfig.json --out docs --ignoreCompilerErrors --theme ./node_modules/beanloop-doc-theme"
+    "docs": "typedoc --tsconfig tsconfig.json --out docs --ignoreCompilerErrors --theme ./node_modules/beanloop-doc-theme && touch docs/.nojekyll"
   },
   "repository": "https://github.com/beanloop/react-form-helper.git",
   "author": "Beanloop AB",
