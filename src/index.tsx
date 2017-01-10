@@ -252,16 +252,14 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
           const Field = component || Input
 
           return (
-            <div key={i}>
-              <Field value={fieldValue} disabled={disabled} {...inputProps} onChange={value => {
-                const newUpdatedObject = set(lensPath(path), value, updatedObject)
-                if (onChange) {
-                  onChange(newUpdatedObject, isValid(fields, newUpdatedObject).valid)
-                } else {
-                  this.setState({updatedObject: newUpdatedObject})
-                }
-              }} />
-            </div>
+            <Field key={i} value={fieldValue} disabled={disabled} {...inputProps} onChange={value => {
+              const newUpdatedObject = set(lensPath(path), value, updatedObject)
+              if (onChange) {
+                onChange(newUpdatedObject, isValid(fields, newUpdatedObject).valid)
+              } else {
+                this.setState({updatedObject: newUpdatedObject})
+              }
+            }} />
           )
         })}
           {saveButton &&
