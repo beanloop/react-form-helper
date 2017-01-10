@@ -1,4 +1,8 @@
 node_modules/
+src/
 tsconfig.json
 npm-debug.log
 yarn.lock
+tsconfig.json
+tslint.json
+.travis.yml

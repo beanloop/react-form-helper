@@ -1,0 +1,24 @@
+exports[`scroll-into-view-helper should not set a ref if allowScroll is false 1`] = `
+Array [
+  Object {},
+  Object {
+    "validationError": "error",
+  },
+  Object {
+    "validationError": "error2",
+  },
+]
+`;
+
+exports[`scroll-into-view-helper should set a ref of the first field with an validationError 1`] = `
+Array [
+  Object {},
+  Object {
+    "ref": [Function],
+    "validationError": "error",
+  },
+  Object {
+    "validationError": "error2",
+  },
+]
+`;
