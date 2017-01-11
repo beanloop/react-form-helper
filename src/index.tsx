@@ -88,7 +88,7 @@ export type Properties<T, I> = {
    */
   onSave: (savedObject: T) => Promise<any>|void
   /**
-   * Callback when the form is modified.
+   * Callback when any field in the form is modified.
    * If this property is set, the form becomes a controlled component and the value
    * prop must be maintained externally.
    *
@@ -252,16 +252,14 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
           const Field = component || Input
 
           return (
-            <div key={i}>
-              <Field value={fieldValue} disabled={disabled} {...inputProps} onChange={value => {
-                const newUpdatedObject = set(lensPath(path), value, updatedObject)
-                if (onChange) {
-                  onChange(newUpdatedObject, isValid(fields, newUpdatedObject).valid)
-                } else {
-                  this.setState({updatedObject: newUpdatedObject})
-                }
-              }} />
-            </div>
+            <Field key={i} value={fieldValue} disabled={disabled} {...inputProps} onChange={value => {
+              const newUpdatedObject = set(lensPath(path), value, updatedObject)
+              if (onChange) {
+                onChange(newUpdatedObject, isValid(fields, newUpdatedObject).valid)
+              } else {
+                this.setState({updatedObject: newUpdatedObject})
+              }
+            }} />
           )
         })}
           {saveButton &&
