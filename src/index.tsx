@@ -88,7 +88,7 @@ export type Properties<T, I> = {
    */
   onSave: (savedObject: T) => Promise<any>|void
   /**
-   * Callback when the form is modified.
+   * Callback when any field in the form is modified.
    * If this property is set, the form becomes a controlled component and the value
    * prop must be maintained externally.
    *
