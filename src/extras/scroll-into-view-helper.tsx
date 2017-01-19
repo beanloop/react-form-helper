@@ -77,7 +77,7 @@ export function scrollIntoView(scroller, fields: Array<any>) {
   let hasScrolled = false
 
   return fields.map(field => {
-    if (!allowScroll) return field
+    if (!allowScroll || !field) return field
 
     if (field.validationError) {
       setImmediate(() => scroller.setAllowScrollIntoView(false))
