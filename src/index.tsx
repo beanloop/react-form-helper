@@ -237,13 +237,16 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
 
           if (errorOnTouched) {
             if (!this.state.touched[path.join('.')]) {
-              inputProps.onBlur = () => {
+              const oldBlur = inputProps.onBlur
+              inputProps.onBlur = e => {
                 this.setState({
                   touched: {
                     ...this.state.touched,
                     [path.join('.')]: true,
                   },
                 })
+
+                if (oldBlur) return oldBlur(e)
               }
               inputProps.error = undefined
             }
