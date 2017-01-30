@@ -23,6 +23,14 @@ export type FieldConfig = {
   component?: ReactType
   label?: ReactChild
   /**
+   * Callback when then field is modified.
+   * It receives the full updatedObject for all fields and may return a new object
+   * that is used instead.
+   *
+   * This is useful if you need to change more fields than the specified path.
+   */
+  onChange?: (updatedObject) => any
+  /**
    * If the field is required
    */
   required?: boolean
@@ -256,7 +264,13 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
 
           return (
             <Field key={i} value={fieldValue} disabled={disabled} {...inputProps} onChange={value => {
-              const newUpdatedObject = set(lensPath(path), value, updatedObject)
+              let newUpdatedObject = set(lensPath(path), value, updatedObject)
+              if (field.onChange) {
+                const modifiedObject = field.onChange(newUpdatedObject)
+                if (modifiedObject) {
+                  newUpdatedObject = modifiedObject
+                }
+              }
               if (onChange) {
                 onChange(newUpdatedObject, isValid(fields, newUpdatedObject).valid)
               } else {
