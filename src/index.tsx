@@ -169,13 +169,6 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
     touched: {},
   }
 
-  componentDidMount() {
-    const {fields, value, onChange} = this.props
-    if (onChange && isValid(fields, value)) {
-      onChange(value, true)
-    }
-  }
-
   componentWillUnmount() {
     this.unmounted = true
   }
