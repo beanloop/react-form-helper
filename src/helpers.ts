@@ -1,6 +1,6 @@
 import {path as getPath} from 'ramda'
 import {FieldConfig} from './index'
-import {required} from './validation'
+import {required as requiredError} from './validation'
 
 /**
  * Check is two arrays are equal (same length and all elements are ===)
@@ -24,10 +24,15 @@ export function isValid(fields: Array<FieldConfig>, updatedObject) {
     }
 
     const value = getValue(field.path, updatedObject)
+    const required =
+      typeof field.required === 'function'
+        ? field.required(updatedObject)
+        : field.required
 
-    if (field.required && value === '') {
+
+    if (required && value === '') {
       valid = false
-      validatedFields.push(Object.assign({}, field, {validationError: required}))
+      validatedFields.push(Object.assign({}, field, {validationError: requiredError}))
       continue
     }
 

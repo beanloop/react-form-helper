@@ -33,7 +33,7 @@ export type FieldConfig = {
   /**
    * If the field is required
    */
-  required?: boolean
+  required?: boolean|((object) => boolean)
   /**
    * Specify validation messages and possibly functions
    *
