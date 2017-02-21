@@ -14,17 +14,19 @@
   "author": "Beanloop AB",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^16.0.3",
+    "@types/jest": "^18.1.1",
     "beanloop-doc-theme": "^0.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "tscomp": "^0.7.4",
+    "tscomp": "^0.8.0",
     "tslint": "^4.0.2",
     "tslint-config-beanloop": "^0.1.0",
     "typedoc": "^0.5.3"
   },
   "dependencies": {
     "@types/ramda": "^0.0.2",
+    "@types/react": "^15.0.11",
+    "jest-cli": "^18.1.0",
     "ramda": "^0.22.1",
     "recompose": "^0.21.2",
     "scroll-into-view-if-needed": "^1.0.6"

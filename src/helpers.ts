@@ -55,6 +55,10 @@ export function isValid(fields: Array<FieldConfig>, updatedObject) {
       valid = false
     }
 
+    if (field.validationError) {
+      valid = false
+    }
+
     if (fieldValid) {
       validatedFields.push(field)
     }
