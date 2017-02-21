@@ -1,4 +1,5 @@
 import {lensPath, path as getPath, set} from 'ramda'
+import * as React from 'react'
 import {CSSProperties, Component, ReactChild, ReactType, cloneElement} from 'react'
 import {getValue, isValid} from './helpers'
 

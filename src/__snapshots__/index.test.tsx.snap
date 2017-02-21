@@ -1,0 +1,120 @@
+exports[`FormHelper should not pass errors to the browser inputs 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+</form>
+`;
+
+exports[`FormHelper should not run custom validators on no value 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+</form>
+`;
+
+exports[`FormHelper should pass errors to custom inputs 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <input
+    disabled={undefined}
+    error="a error"
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    error="b error"
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    error="c error"
+    onChange={[Function]}
+    value="value" />
+</form>
+`;
+
+exports[`FormHelper should pass errors to untouched inputs if errorOnTouched is true 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <input
+    disabled={undefined}
+    error={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    error={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    error={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    value="value" />
+</form>
+`;
+
+exports[`FormHelper should render the passed fields 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    value="a" />
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+</form>
+`;
+
+exports[`FormHelper should render using specified components 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <some-input
+    disabled={undefined}
+    onChange={[Function]}
+    value="a" />
+  <some-input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+  <other-input
+    disabled={undefined}
+    onChange={[Function]}
+    value="c" />
+  <other-input
+    disabled={undefined}
+    onChange={[Function]}
+    value="" />
+</form>
+`;
