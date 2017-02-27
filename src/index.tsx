@@ -5,13 +5,26 @@ import {getValue, isValid} from './helpers'
 
 export * from './validation'
 
-export const BrowserButton = ({disabled, children}) =>
-  <button disabled={disabled}>
-    {children}
-  </button>
+export const BrowserButton = ({loading: _, ...props}) => <button {...props} />
 
-export const BrowserInput = ({error: _, onChange, ...props}) =>
-  <input {...props} onChange={e => onChange((e.target as HTMLInputElement).value)} />
+export const BrowserInput = ({error: _, onChange, label, divProps, labelProps, labelSpanProps, ...props}: any) =>
+  <div {...divProps}>
+    {label
+      ? <label {...labelProps}>
+          <span {...labelSpanProps}>{label}</span>
+          <input {...props}
+            onChange={e => onChange(
+              (e.target as HTMLInputElement)[props.type === 'checkbox' ? 'checked' : 'value']
+            )}
+          />
+        </label>
+      : <input {...props}
+          onChange={e => onChange(
+            (e.target as HTMLInputElement)[props.type === 'checkbox' ? 'checked' : 'value'])
+          }
+        />
+    }
+  </div>
 
 export type FieldConfig = {
   /**
@@ -22,6 +35,7 @@ export type FieldConfig = {
    * Component to render, defaults to the inputComponent passed to FormHelper
    */
   component?: ReactType
+  render?: (props: any) => ReactType
   label?: ReactChild
   /**
    * Callback when then field is modified.
@@ -140,6 +154,7 @@ export type Properties<T, I> = {
    *   loading: If the form is saving or not
    */
   buttonComponent?: ReactType
+  buttonProps?: Object
   /**
    * A style property that is passed to the formComponent
    */
@@ -191,6 +206,7 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
       formComponent: Form = 'form',
       inputComponent: Input = BrowserInput,
       buttonComponent: Button = BrowserButton,
+      buttonProps,
       formId,
       dirtyCheck,
       errorOnTouched,
@@ -224,7 +240,7 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
           if (!field) return null
           if (field.props) return cloneElement(field, {key: i})
 
-          const {component, path, validations, validationError, ...inputProps} = field
+          const {render, component, path, validations, validationError, ...inputProps} = field
 
           if (getPath(path, updatedObject) !== getPath(field.path, value)) {
             changed = true
@@ -254,10 +270,12 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
             }
           }
 
-          const Field = component || Input
-
-          return (
-            <Field key={i} value={fieldValue} disabled={disabled} {...inputProps} onChange={value => {
+          const props = {
+            key: i,
+            value: fieldValue,
+            disabled,
+            ...inputProps,
+            onChange: value => {
               let newUpdatedObject = set(lensPath(path), value, updatedObject)
               if (field.onChange) {
                 const modifiedObject = field.onChange(newUpdatedObject)
@@ -270,11 +288,25 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
               } else {
                 this.setState({updatedObject: newUpdatedObject})
               }
-            }} />
-          )
+            },
+          }
+
+          if (render) {
+            return render(props)
+          } else {
+            const Field = component || Input
+            return <Field {...props}  />
+          }
+
         })}
           {saveButton &&
-            <Button value={updatedObject} loading={loading} disabled={!changed || !valid || disabled}>
+            <Button
+              type='submit'
+              value={updatedObject}
+              loading={loading}
+              disabled={!changed || !valid || disabled}
+              {...buttonProps}
+            >
               {saveButton}
             </Button>
           }

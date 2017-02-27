@@ -3,18 +3,24 @@ exports[`FormHelper should not pass errors to the browser inputs 1`] = `
   id={undefined}
   onSubmit={[Function]}
   style={undefined}>
-  <input
-    disabled={undefined}
-    onChange={[Function]}
-    value="" />
-  <input
-    disabled={undefined}
-    onChange={[Function]}
-    value="" />
-  <input
-    disabled={undefined}
-    onChange={[Function]}
-    value="" />
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="" />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="" />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="" />
+  </div>
 </form>
 `;
 
@@ -84,14 +90,18 @@ exports[`FormHelper should render the passed fields 1`] = `
   id={undefined}
   onSubmit={[Function]}
   style={undefined}>
-  <input
-    disabled={undefined}
-    onChange={[Function]}
-    value="a" />
-  <input
-    disabled={undefined}
-    onChange={[Function]}
-    value="" />
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="a" />
+  </div>
+  <div>
+    <input
+      disabled={undefined}
+      onChange={[Function]}
+      value="" />
+  </div>
 </form>
 `;
 
