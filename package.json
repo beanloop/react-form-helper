@@ -12,6 +12,7 @@
     "docs-dev": "documittu start"
   },
   "repository": "https://github.com/beanloop/react-form-helper.git",
+  "homepage": "https://beanloop.github.io/react-form-helper",
   "author": "Beanloop AB",
   "license": "MIT",
   "devDependencies": {
