@@ -8,7 +8,8 @@
     "watch": "tscomp watch",
     "test": "tscomp test",
     "prepublish": "npm run build",
-    "docs": "typedoc --tsconfig tsconfig.json --out docs --ignoreCompilerErrors --theme ./node_modules/beanloop-doc-theme && touch docs/.nojekyll"
+    "docs": "documittu build",
+    "docs-dev": "documittu start"
   },
   "repository": "https://github.com/beanloop/react-form-helper.git",
   "author": "Beanloop AB",
@@ -18,6 +19,9 @@
     "beanloop-doc-theme": "^0.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-toolbox": "1",
+    "react-toolbox-components": "^0.1.10",
+    "styled-material": "^0.1.8",
     "tscomp": "^0.8.0",
     "tslint": "^4.0.2",
     "tslint-config-beanloop": "^0.1.0",

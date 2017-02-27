@@ -45,9 +45,9 @@ const SignIn = () =>
 )
 ```
 
-## API Docs
-Documentation can be found [here](https://beanloop.github.io/react-form-helper/).
+## Docs
+Exampels can be found [here](https://beanloop.github.io/react-form-helper/).
+API docs can be found as doc comments in the [code](https://github.com/beanloop/react-form-helper/blob/master/src/index.tsx).
 
 ## License
-react-form-helper is dual-licensed under Apache 2.0 and MIT
-terms.
+react-form-helper is dual-licensed under Apache 2.0 and MIT terms.
