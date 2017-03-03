@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@types/ramda": "^0.0.2",
-    "jest-cli": "^18.1.0",
     "ramda": "^0.22.1",
     "recompose": "^0.21.2",
     "scroll-into-view-if-needed": "^1.0.6"
