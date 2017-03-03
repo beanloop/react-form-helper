@@ -1,6 +1,6 @@
 {
   "name": "react-form-helper",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "React component for building forms with ease",
   "main": "dist/src/index.js",
   "scripts": {
@@ -30,14 +30,13 @@
   },
   "dependencies": {
     "@types/ramda": "^0.0.2",
-    "@types/react": "^15.0.11",
     "jest-cli": "^18.1.0",
     "ramda": "^0.22.1",
     "recompose": "^0.21.2",
     "scroll-into-view-if-needed": "^1.0.6"
   },
   "peerDependencies": {
-    "@types/react": "^0.14.55",
+    "@types/react": "^15.0.14",
     "react": "^15.4.1"
   }
 }
