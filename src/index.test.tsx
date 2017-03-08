@@ -89,4 +89,20 @@ describe('FormHelper', () => {
       />
     )
   })
+
+  it('should pass errors to untouched inputs if they are listed in the errorOnTouched array', () => {
+    snap(
+      <FormHelper
+        errorOnTouched={['b']}
+        inputComponent='input'
+        value={{c: 'value'}}
+        onSave={() => null}
+        fields={[
+          {path: ['a'], error: 'a error'},
+          {path: ['b'], validationError: 'b', validations: {b: {text: 'b error'}}},
+          {path: ['c'], validations: {c: {text: 'c error', validation: () => false}}},
+        ]}
+      />
+    )
+  })
 })

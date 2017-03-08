@@ -85,6 +85,30 @@ exports[`FormHelper should pass errors to untouched inputs if errorOnTouched is 
 </form>
 `;
 
+exports[`FormHelper should pass errors to untouched inputs if they are listed in the errorOnTouched array 1`] = `
+<form
+  id={undefined}
+  onSubmit={[Function]}
+  style={undefined}>
+  <input
+    disabled={undefined}
+    error="a error"
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    error={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    value="" />
+  <input
+    disabled={undefined}
+    error="c error"
+    onChange={[Function]}
+    value="value" />
+</form>
+`;
+
 exports[`FormHelper should render the passed fields 1`] = `
 <form
   id={undefined}

@@ -9,12 +9,15 @@
     "moduleResolution": "node",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "jest"
+    ],
+    "outDir": "dist"
   },
   "include": [
     "src/**/*",
-    "typings/**/*",
-    "node_modules/@types/jest/*"
+    "typings/**/*"
   ],
   "exclude": [],
   "compileOnSave": false,

@@ -1,30 +1,10 @@
 import {lensPath, path as getPath, set} from 'ramda'
 import * as React from 'react'
 import {CSSProperties, Component, ReactChild, ReactType, cloneElement} from 'react'
+import {BrowserButton, BrowserInput} from './browser-components'
 import {getValue, isValid} from './helpers'
 
 export * from './validation'
-
-export const BrowserButton = ({loading: _, ...props}) => <button {...props} />
-
-export const BrowserInput = ({error: _, onChange, label, divProps, labelProps, labelSpanProps, ...props}: any) =>
-  <div {...divProps}>
-    {label
-      ? <label {...labelProps}>
-          <span {...labelSpanProps}>{label}</span>
-          <input {...props}
-            onChange={e => onChange(
-              (e.target as HTMLInputElement)[props.type === 'checkbox' ? 'checked' : 'value']
-            )}
-          />
-        </label>
-      : <input {...props}
-          onChange={e => onChange(
-            (e.target as HTMLInputElement)[props.type === 'checkbox' ? 'checked' : 'value'])
-          }
-        />
-    }
-  </div>
 
 export type FieldConfig = {
   /**
@@ -94,7 +74,6 @@ export type Properties<T, I> = {
    *   {
    *     path: ['username'],
    *     label: 'Username',
-   *
    *   }
    * ]
    * ```
@@ -154,6 +133,9 @@ export type Properties<T, I> = {
    *   loading: If the form is saving or not
    */
   buttonComponent?: ReactType
+  /**
+   * Extra props that should be passed to the button component
+   */
   buttonProps?: Object
   /**
    * A style property that is passed to the formComponent
@@ -168,9 +150,11 @@ export type Properties<T, I> = {
    */
   dirtyCheck?: boolean
   /**
-   * Set to true to only show error messages for fields that have been touched
+   * Set to true to only show error messages for fields that have been touched.
+   * If an array is passed, only validationErrors in that array will be hidden until
+   * the field is touched.
    */
-  errorOnTouched?: boolean
+  errorOnTouched?: boolean|Array<string>
   /**
    * Set to true to disable the saveButton
    */
@@ -254,7 +238,11 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
           }
 
           if (errorOnTouched) {
-            if (!this.state.touched[path.join('.')]) {
+            let hideError = !this.state.touched[path.join('.')]
+            if (hideError && Array.isArray(errorOnTouched)) {
+              hideError = errorOnTouched.includes(validationError)
+            }
+            if (hideError) {
               const oldBlur = inputProps.onBlur
               inputProps.onBlur = e => {
                 this.setState({
