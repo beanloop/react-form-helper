@@ -6,8 +6,8 @@
         "128": "7",
         "160": "8",
         "174": "9",
-        "829": "10",
-        "830": "11"
+        "841": "10",
+        "842": "11"
     },
     "declarationModule": {
         "0": "dist/src/browser-components.js",
@@ -1101,7 +1101,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "Settings",
-                                "id": 830
+                                "id": 842
                             },
                             "optional": false
                         }
@@ -1109,7 +1109,7 @@
                     "returnType": {
                         "kind": "Named",
                         "name": "HOC",
-                        "id": 829
+                        "id": 841
                     }
                 },
                 "13": {

@@ -1,4 +1,5 @@
 /// <reference types="jest" />
+import {FieldConfig} from '../index'
 import {scrollIntoView} from './scroll-into-view-helper'
 
 function mockScroller(allowScroll = true) {
@@ -29,7 +30,7 @@ describe('scroll-into-view-helper', () => {
         {},
         {validationError: 'error'},
         {validationError: 'error2'},
-      ])
+      ] as Array<FieldConfig>)
     ).toMatchSnapshot()
   })
 
@@ -39,14 +40,14 @@ describe('scroll-into-view-helper', () => {
         {},
         {validationError: 'error'},
         {validationError: 'error2'},
-      ])
+      ] as Array<FieldConfig>)
     ).toMatchSnapshot()
   })
 
   it('should scroll to the ref', () => {
     const [{ref}] = scrollIntoView(mockScroller(), [
       {validationError: 'error'},
-    ])
+    ] as Array<FieldConfig>) as any
 
     const mockElement = new HTMLElement()
     ref(mockElement)

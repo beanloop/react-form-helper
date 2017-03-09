@@ -7,9 +7,10 @@
     "build": "tscomp build",
     "watch": "tscomp watch",
     "test": "tscomp test",
-    "prepublish": "npm run build",
-    "docs": "documittu build",
-    "docs-dev": "documittu start"
+    "prepublish": "yarn build",
+    "docs": "yarn docs-analyze && documittu build",
+    "docs-dev": "documittu start",
+    "docs-analyze": "documittu-analyzer-ts . > docs/analyze-result.json"
   },
   "repository": "https://github.com/beanloop/react-form-helper.git",
   "homepage": "https://beanloop.github.io/react-form-helper",
@@ -17,7 +18,10 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^18.1.1",
-    "beanloop-doc-theme": "^0.2.0",
+    "@types/react": "^15.0.14",
+    "documittu": "^0.1.0",
+    "documittu-analyzer-ts": "^0.1.0",
+    "documittu-template-default": "^0.1.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-toolbox": "1",
@@ -25,8 +29,7 @@
     "styled-material": "^0.1.8",
     "tscomp": "^0.8.0",
     "tslint": "^4.0.2",
-    "tslint-config-beanloop": "^0.1.0",
-    "typedoc": "^0.5.3"
+    "tslint-config-beanloop": "^0.1.0"
   },
   "dependencies": {
     "@types/ramda": "^0.0.2",
