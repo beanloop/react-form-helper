@@ -3,8 +3,9 @@ import {Component, ReactType} from 'react'
 import {findDOMNode} from 'react-dom'
 import wrapDisplayName from 'recompose/wrapDisplayName'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
+import {FieldConfig} from '../index'
 
-export type HOC = (ReactType) => ReactType
+export type HOC = (component: ReactType) => ReactType
 export type Settings = {
   /**
    * Scroll time in ms
@@ -13,14 +14,14 @@ export type Settings = {
 }
 
 /**
- * A HOC that keeps state for the [[scrollIntoView]] helper.
+ * A HOC that keeps state for the [scrollIntoView] helper.
  *
- * It provides setAllowScrollIntoView and scroller as props to the wrapped components.
+ * It provides **setAllowScrollIntoView** and **scroller** as props to the wrapped components.
  *
- *  - setAllowScrollIntoView: is a function that should be called to enable/disable scrolling.
+ *  - **setAllowScrollIntoView**: is a function that should be called to enable/disable scrolling.
  *    For example, call `setAllowScrollIntoView(true)` when the user saves the form
  *
- *  - scroller: is an object that should passed as the first argument to [[scollIntoView]].
+ *  - **scroller**: is an object that should passed as the first argument to [scollIntoView].
  *    It should never be accessed directly
  */
 export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200} = {}) =>
@@ -46,11 +47,11 @@ export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200
  * into view.
  *
  * Parameters:
- *  - scroller: The scroller prop from the [[withScrollIntoView]] HOC
+ *  - scroller: The scroller prop from the [withScrollIntoView] HOC
  *  - fields: The fields to wrap
  *
  * Example:
- * ```typescript
+ * ```
  * <FormHelper
  *   value={{}}
  *   onSave={user => {
@@ -70,7 +71,7 @@ export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200
  * />
  * ```
  */
-export function scrollIntoView(scroller, fields: Array<any>) {
+export function scrollIntoView(scroller, fields: Array<FieldConfig>) {
   if (!scroller.state.allowScroll) return fields
 
   let allowScroll = true

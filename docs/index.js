@@ -1,3 +1,10 @@
-import {start} from 'documittu-template-beanloop'
+import {start} from 'documittu-template-default'
+import apiData from './analyze-result.json'
 
-start('react-form-helper', require.context('./pages', true, /^\.\/.*\.md$/))
+start({
+  title: 'react-form-helper',
+  pages: require.context('./pages', true, /^\.\/.*\.md$/),
+  apiDocs: {
+    data: apiData,
+  },
+})

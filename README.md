@@ -17,7 +17,7 @@ which makes it easy to use with libraries such as react-toolbox and react-mdl.
 
 Example below shows a simple usage using react-toolbox:
 
-```typescript
+```jsx
 import {FormHelper} from 'react-form-helper'
 import Button from 'react-toolbox/lib/button'
 import Checkbox from 'react-toolbox/lib/checkbox'
