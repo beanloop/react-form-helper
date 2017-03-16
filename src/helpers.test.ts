@@ -24,7 +24,7 @@ describe('helpers', () => {
     })
 
     it('should return false if any of the fields fail their validation', () => {
-      const validation = value => value === 'B'
+      const validation = (value: any) => value === 'B'
       const fields = [
         {path: ['a']},
         {path: ['b'], validations: {isUppercase: {text: 'Must be uppercase', validation}}},
@@ -55,7 +55,7 @@ describe('helpers', () => {
     })
 
     it('should return true if the fields validate', () => {
-      const validation = value => value !== 'A'
+      const validation = (value: any) => value !== 'A'
       const fields = [
         {path: ['a']},
         {path: ['b'], required: true, validations: {isNotA: {text: '', validation}}},

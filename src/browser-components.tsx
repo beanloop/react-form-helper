@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const BrowserButton = ({loading: _, ...props}) => <button {...props} />
+export const BrowserButton = ({loading: _, ...props}: any) => <button {...props} />
 
 export const BrowserInput = ({error: _, onChange, label, divProps, labelProps, labelSpanProps, ...props}: any) =>
   <div {...divProps}>

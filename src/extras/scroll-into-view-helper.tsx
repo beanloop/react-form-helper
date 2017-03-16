@@ -24,13 +24,13 @@ export type Settings = {
  *  - **scroller**: is an object that should passed as the first argument to [scollIntoView].
  *    It should never be accessed directly
  */
-export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200} = {}) =>
+export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200}: Settings = {}) =>
   WrappedComponent => class extends Component<any, {allowScroll: boolean}> {
     static displayName = wrapDisplayName(WrappedComponent, 'withScrollIntoView')
 
     state = {allowScroll: true}
     animationSettings = {duration}
-    setAllowScrollIntoView = allowScroll => this.setState({allowScroll})
+    setAllowScrollIntoView = (allowScroll: boolean) => this.setState({allowScroll})
 
     render() {
       return (
@@ -71,7 +71,7 @@ export const withScrollIntoView: (settings?: Settings) => HOC = ({duration = 200
  * />
  * ```
  */
-export function scrollIntoView(scroller, fields: Array<FieldConfig>) {
+export function scrollIntoView(scroller: any, fields: Array<FieldConfig>) {
   if (!scroller.state.allowScroll) return fields
 
   let allowScroll = true
@@ -86,7 +86,7 @@ export function scrollIntoView(scroller, fields: Array<FieldConfig>) {
 
       return {
         ...field,
-        ref(ref) {
+        ref(ref: Element) {
           if (hasScrolled || !ref || !scroller.state.allowScroll) return null
 
           const element = findDOMNode(ref)

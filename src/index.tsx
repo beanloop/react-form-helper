@@ -24,11 +24,11 @@ export type FieldConfig = {
    *
    * This is useful if you need to change more fields than the specified path.
    */
-  onChange?: (updatedObject) => any
+  onChange?: (updatedObject: any) => any
   /**
    * If the field is required
    */
-  required?: boolean|((object) => boolean)
+  required?: boolean|((object: any) => boolean)
   /**
    * Specify validation messages and possibly functions
    *
@@ -48,7 +48,7 @@ export type FieldConfig = {
   validations?: {
     [validationError: string]: {
       text: string
-      validation?: (value) => boolean
+      validation?: (value: any) => boolean
     }
   }
   /**
@@ -166,14 +166,14 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
   state = {
     loading: false,
     updatedObject: null,
-    touched: {},
+    touched: {} as {[path: string]: boolean},
   }
 
   componentWillUnmount() {
     this.unmounted = true
   }
 
-  setLoading(loading) {
+  setLoading(loading: boolean) {
     if (!this.unmounted) {
       this.setState({loading})
     }
@@ -207,7 +207,7 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
     const {validatedFields, valid} = isValid(fields, updatedObject)
 
     return (
-      <Form id={formId} style={style} onSubmit={e => {
+      <Form id={formId} style={style} onSubmit={(e: React.MouseEvent<any>) => {
         e.preventDefault()
         const returnValue = onSave(updatedObject)
         if (returnValue && returnValue.then && returnValue.catch) {
@@ -244,7 +244,7 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
             }
             if (hideError) {
               const oldBlur = inputProps.onBlur
-              inputProps.onBlur = e => {
+              inputProps.onBlur = (e: React.FormEvent<any>) => {
                 this.setState({
                   touched: {
                     ...this.state.touched,
@@ -263,7 +263,7 @@ export class FormHelper extends Component<Properties<any, any>, {}> {
             value: fieldValue,
             disabled,
             ...inputProps,
-            onChange: value => {
+            onChange: (value: any) => {
               let newUpdatedObject = set(lensPath(path), value, updatedObject)
               if (field.onChange) {
                 const modifiedObject = field.onChange(newUpdatedObject)

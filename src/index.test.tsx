@@ -7,7 +7,7 @@ describe('FormHelper', () => {
     snap(
       <FormHelper
         value={{a: 'a'}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a']},
           {path: ['b']},
@@ -21,7 +21,7 @@ describe('FormHelper', () => {
       <FormHelper
         inputComponent='some-input'
         value={{a: 'a', c: 'c'}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a']},
           {path: ['b']},
@@ -36,7 +36,7 @@ describe('FormHelper', () => {
     snap(
       <FormHelper
         value={{}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a'], error: 'a error'},
           {path: ['b'], validationError: 'b', validations: {b: {text: 'b error'}}},
@@ -51,7 +51,7 @@ describe('FormHelper', () => {
       <FormHelper
         inputComponent='input'
         value={{c: 'value'}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a'], error: 'a error'},
           {path: ['b'], validationError: 'b', validations: {b: {text: 'b error'}}},
@@ -66,7 +66,7 @@ describe('FormHelper', () => {
       <FormHelper
         inputComponent='input'
         value={{}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a'], validations: {a: {text: 'a error', validation: () => {throw 'should not be called'}}}},
         ]}
@@ -80,7 +80,7 @@ describe('FormHelper', () => {
         errorOnTouched
         inputComponent='input'
         value={{c: 'value'}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a'], error: 'a error'},
           {path: ['b'], validationError: 'b', validations: {b: {text: 'b error'}}},
@@ -96,7 +96,7 @@ describe('FormHelper', () => {
         errorOnTouched={['b']}
         inputComponent='input'
         value={{c: 'value'}}
-        onSave={() => null}
+        onSave={() => {}}
         fields={[
           {path: ['a'], error: 'a error'},
           {path: ['b'], validationError: 'b', validations: {b: {text: 'b error'}}},

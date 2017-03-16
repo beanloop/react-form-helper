@@ -13,7 +13,7 @@ export function isEqual(a: Array<any>, b: Array<any>) {
   return true
 }
 
-export function isValid(fields: Array<FieldConfig>, updatedObject) {
+export function isValid(fields: Array<FieldConfig>, updatedObject: any) {
   const validatedFields = [] as Array<FieldConfig>
   let valid = true
 
@@ -28,7 +28,6 @@ export function isValid(fields: Array<FieldConfig>, updatedObject) {
       typeof field.required === 'function'
         ? field.required(updatedObject)
         : field.required
-
 
     if (required && value === '') {
       valid = false
@@ -67,7 +66,7 @@ export function isValid(fields: Array<FieldConfig>, updatedObject) {
   return {validatedFields, valid}
 }
 
-export function getValue(path, updatedObject) {
+export function getValue(path: Array<string>, updatedObject: any) {
   const value = getPath(path, updatedObject)
   if (value === undefined || value === null) return ''
 

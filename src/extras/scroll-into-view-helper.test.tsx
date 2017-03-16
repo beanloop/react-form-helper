@@ -7,7 +7,7 @@ function mockScroller(allowScroll = true) {
     state: {
       allowScroll,
     },
-    setAllowScrollIntoView(allowScroll) {
+    setAllowScrollIntoView(allowScroll: boolean) {
       setImmediate(() => {
         this.state.allowScroll = allowScroll
       })
@@ -15,7 +15,7 @@ function mockScroller(allowScroll = true) {
   }
 }
 
-declare const global
+declare const global: any
 global.HTMLElement = function (withParent = true) {
   this.nodeType = 1
   if (withParent) {
@@ -49,7 +49,7 @@ describe('scroll-into-view-helper', () => {
       {validationError: 'error'},
     ] as Array<FieldConfig>) as any
 
-    const mockElement = new HTMLElement()
+    const mockElement: any = new HTMLElement()
     ref(mockElement)
     expect(typeof mockElement.parentNode['scrollTop']).toBe('number')
   })
