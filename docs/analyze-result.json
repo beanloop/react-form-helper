@@ -3,11 +3,11 @@
     "mainModule": "dist/src/index.js",
     "outDir": "dist",
     "typeDeclaration": {
-        "128": "7",
-        "160": "8",
-        "174": "9",
-        "841": "10",
-        "842": "11"
+        "127": "7",
+        "159": "8",
+        "173": "9",
+        "837": "10",
+        "838": "11"
     },
     "declarationModule": {
         "0": "dist/src/browser-components.js",
@@ -37,18 +37,7 @@
                     "exportedIn": [],
                     "name": "BrowserButton",
                     "documentation": "",
-                    "properties": [
-                        {
-                            "name": "loading",
-                            "documentation": "",
-                            "type": {
-                                "kind": "Named",
-                                "name": "any",
-                                "id": 3
-                            },
-                            "optional": false
-                        }
-                    ]
+                    "properties": []
                 },
                 "1": {
                     "id": "1",
@@ -69,12 +58,7 @@
                 "2": {
                     "id": "2",
                     "kind": "Variable",
-                    "exportedIn": [
-                        {
-                            "path": "dist/src/index.js",
-                            "name": "required"
-                        }
-                    ],
+                    "exportedIn": [],
                     "name": "required",
                     "documentation": "Key used for specifying an error message for required fields\n\nExample:\n```\n{\n   path: ['email'],\n   label: 'Email',\n   type: 'email',\n   required: true,\n   validations: {\n     [required]: {text: 'A valid email is required'},\n   },\n}\n```",
                     "type": {
@@ -86,12 +70,7 @@
                 "3": {
                     "id": "3",
                     "kind": "Function",
-                    "exportedIn": [
-                        {
-                            "path": "dist/src/index.js",
-                            "name": "pattern"
-                        }
-                    ],
+                    "exportedIn": [],
                     "name": "pattern",
                     "documentation": "Validate an input against a regex\n\nExample:\n```\n{\n   path: ['email'],\n   label: 'Email',\n   type: 'email',\n   validations: {\n     email: {\n       text: 'The email is invalid',\n       validation: pattern(emailRegex),\n     },\n   },\n}\n```",
                     "parameters": [
@@ -101,7 +80,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "RegExp",
-                                "id": 33,
+                                "id": 43,
                                 "importedFrom": "lib es5"
                             },
                             "optional": false
@@ -156,7 +135,7 @@
                                         "id": 1
                                     }
                                 ],
-                                "id": 40,
+                                "id": 50,
                                 "importedFrom": "lib es2016"
                             },
                             "optional": false
@@ -174,7 +153,7 @@
                                         "id": 1
                                     }
                                 ],
-                                "id": 40,
+                                "id": 50,
                                 "importedFrom": "lib es2016"
                             },
                             "optional": false
@@ -203,10 +182,10 @@
                                     {
                                         "kind": "Named",
                                         "name": "FieldConfig",
-                                        "id": 128
+                                        "id": 127
                                     }
                                 ],
-                                "id": 129,
+                                "id": 128,
                                 "importedFrom": "lib es2016"
                             },
                             "optional": false
@@ -235,10 +214,10 @@
                                         {
                                             "kind": "Named",
                                             "name": "FieldConfig",
-                                            "id": 128
+                                            "id": 127
                                         }
                                     ],
-                                    "id": 129,
+                                    "id": 128,
                                     "importedFrom": "lib es2016"
                                 },
                                 "optional": false
@@ -268,8 +247,16 @@
                             "documentation": "",
                             "type": {
                                 "kind": "Named",
-                                "name": "any",
-                                "id": 1
+                                "name": "Array",
+                                "parameters": [
+                                    {
+                                        "kind": "Named",
+                                        "name": "string",
+                                        "id": 8
+                                    }
+                                ],
+                                "id": 133,
+                                "importedFrom": "lib es2016"
                             },
                             "optional": false
                         },
@@ -319,7 +306,7 @@
                                             "id": 8
                                         }
                                     ],
-                                    "id": 139,
+                                    "id": 133,
                                     "importedFrom": "lib es2016"
                                 },
                                 "optional": false
@@ -330,7 +317,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactType",
-                                    "id": 149,
+                                    "id": 148,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -355,7 +342,7 @@
                                     "returnType": {
                                         "kind": "Named",
                                         "name": "ReactType",
-                                        "id": 149,
+                                        "id": 148,
                                         "importedFrom": "react"
                                     }
                                 },
@@ -367,7 +354,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactChild",
-                                    "id": 153,
+                                    "id": 152,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -438,7 +425,6 @@
                                     "kind": "Object",
                                     "properties": [],
                                     "index": {
-                                        "name": "validationError",
                                         "type": {
                                             "kind": "Object",
                                             "properties": [
@@ -528,17 +514,17 @@
                                                 {
                                                     "kind": "Named",
                                                     "name": "FieldConfig",
-                                                    "id": 128
+                                                    "id": 127
                                                 },
                                                 {
                                                     "kind": "Named",
                                                     "name": "I",
-                                                    "id": 162
+                                                    "id": 161
                                                 }
                                             ]
                                         }
                                     ],
-                                    "id": 164,
+                                    "id": 163,
                                     "importedFrom": "lib es2016"
                                 },
                                 "optional": false
@@ -549,7 +535,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "T",
-                                    "id": 161
+                                    "id": 160
                                 },
                                 "optional": false
                             },
@@ -565,7 +551,7 @@
                                             "type": {
                                                 "kind": "Named",
                                                 "name": "T",
-                                                "id": 161
+                                                "id": 160
                                             },
                                             "optional": false
                                         }
@@ -588,8 +574,8 @@
                                                         "id": 1
                                                     }
                                                 ],
-                                                "id": 169,
-                                                "importedFrom": "lib es2015"
+                                                "id": 168,
+                                                "importedFrom": "lib es5"
                                             }
                                         ]
                                     }
@@ -608,7 +594,7 @@
                                             "type": {
                                                 "kind": "Named",
                                                 "name": "T",
-                                                "id": 161
+                                                "id": 160
                                             },
                                             "optional": false
                                         },
@@ -637,7 +623,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactChild",
-                                    "id": 153,
+                                    "id": 152,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -648,7 +634,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactType",
-                                    "id": 149,
+                                    "id": 148,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -659,7 +645,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactType",
-                                    "id": 149,
+                                    "id": 148,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -670,7 +656,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactType",
-                                    "id": 149,
+                                    "id": 148,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -681,7 +667,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "Object",
-                                    "id": 28,
+                                    "id": 38,
                                     "importedFrom": "lib es5"
                                 },
                                 "optional": true
@@ -692,7 +678,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "CSSProperties",
-                                    "id": 172,
+                                    "id": 171,
                                     "importedFrom": "react"
                                 },
                                 "optional": true
@@ -737,7 +723,7 @@
                                                     "id": 8
                                                 }
                                             ],
-                                            "id": 139,
+                                            "id": 133,
                                             "importedFrom": "lib es2016"
                                         }
                                     ]
@@ -770,7 +756,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "ReactNode",
-                                "id": 210,
+                                "id": 209,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -788,17 +774,17 @@
                                             {
                                                 "kind": "Named",
                                                 "name": "FieldConfig",
-                                                "id": 128
+                                                "id": 127
                                             },
                                             {
                                                 "kind": "Named",
                                                 "name": "I",
-                                                "id": 162
+                                                "id": 161
                                             }
                                         ]
                                     }
                                 ],
-                                "id": 164,
+                                "id": 163,
                                 "importedFrom": "lib es2016"
                             },
                             "optional": false
@@ -809,7 +795,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "T",
-                                "id": 161
+                                "id": 160
                             },
                             "optional": false
                         },
@@ -825,7 +811,7 @@
                                         "type": {
                                             "kind": "Named",
                                             "name": "T",
-                                            "id": 161
+                                            "id": 160
                                         },
                                         "optional": false
                                     }
@@ -848,8 +834,8 @@
                                                     "id": 1
                                                 }
                                             ],
-                                            "id": 169,
-                                            "importedFrom": "lib es2015"
+                                            "id": 168,
+                                            "importedFrom": "lib es5"
                                         }
                                     ]
                                 }
@@ -868,7 +854,7 @@
                                         "type": {
                                             "kind": "Named",
                                             "name": "T",
-                                            "id": 161
+                                            "id": 160
                                         },
                                         "optional": false
                                     },
@@ -897,7 +883,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "ReactChild",
-                                "id": 153,
+                                "id": 152,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -908,7 +894,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "ReactType",
-                                "id": 149,
+                                "id": 148,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -919,7 +905,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "ReactType",
-                                "id": 149,
+                                "id": 148,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -930,7 +916,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "ReactType",
-                                "id": 149,
+                                "id": 148,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -941,7 +927,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "Object",
-                                "id": 28,
+                                "id": 38,
                                 "importedFrom": "lib es5"
                             },
                             "optional": true
@@ -952,7 +938,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "CSSProperties",
-                                "id": 172,
+                                "id": 171,
                                 "importedFrom": "react"
                             },
                             "optional": true
@@ -997,7 +983,7 @@
                                                 "id": 8
                                             }
                                         ],
-                                        "id": 139,
+                                        "id": 133,
                                         "importedFrom": "lib es2016"
                                     }
                                 ]
@@ -1017,20 +1003,7 @@
                     ]
                 }
             },
-            "reexports": [
-                {
-                    "name": "required",
-                    "srcName": "required",
-                    "path": "dist/src/validation.js",
-                    "id": "2"
-                },
-                {
-                    "name": "pattern",
-                    "srcName": "pattern",
-                    "path": "dist/src/validation.js",
-                    "id": "3"
-                }
-            ]
+            "reexports": []
         },
         "dist/src/extras/scroll-into-view-helper.js": {
             "name": "scroll-into-view-helper",
@@ -1052,7 +1025,7 @@
                                 "type": {
                                     "kind": "Named",
                                     "name": "ReactType",
-                                    "id": 149,
+                                    "id": 148,
                                     "importedFrom": "react"
                                 },
                                 "optional": false
@@ -1061,7 +1034,7 @@
                         "returnType": {
                             "kind": "Named",
                             "name": "ReactType",
-                            "id": 149,
+                            "id": 148,
                             "importedFrom": "react"
                         }
                     }
@@ -1101,7 +1074,7 @@
                             "type": {
                                 "kind": "Named",
                                 "name": "Settings",
-                                "id": 842
+                                "id": 838
                             },
                             "optional": false
                         }
@@ -1109,7 +1082,7 @@
                     "returnType": {
                         "kind": "Named",
                         "name": "HOC",
-                        "id": 841
+                        "id": 837
                     }
                 },
                 "13": {
@@ -1139,10 +1112,10 @@
                                     {
                                         "kind": "Named",
                                         "name": "FieldConfig",
-                                        "id": 128
+                                        "id": 127
                                     }
                                 ],
-                                "id": 129,
+                                "id": 128,
                                 "importedFrom": "lib es2016"
                             },
                             "optional": false
@@ -1155,10 +1128,10 @@
                             {
                                 "kind": "Named",
                                 "name": "FieldConfig",
-                                "id": 128
+                                "id": 127
                             }
                         ],
-                        "id": 129,
+                        "id": 128,
                         "importedFrom": "lib es2016"
                     }
                 }
