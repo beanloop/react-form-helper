@@ -28,7 +28,7 @@
     "react-toolbox": "1",
     "react-toolbox-components": "^0.1.10",
     "styled-material": "^0.1.8",
-    "tscomp": "^0.8.0",
+    "tscomp": "^0.8.2",
     "tslint": "^4.0.2",
     "tslint-config-beanloop": "^0.1.0"
   },
