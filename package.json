@@ -1,6 +1,6 @@
 {
   "name": "react-form-helper",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "React component for building forms with ease",
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
@@ -33,9 +33,9 @@
     "tslint-config-beanloop": "^0.1.0"
   },
   "dependencies": {
-    "@types/ramda": "^0.0.2",
+    "@types/ramda": "^0.25.8",
     "@types/recompose": "^0.20.4",
-    "ramda": "^0.22.1",
+    "ramda": "^0.25.0",
     "recompose": "^0.21.2",
     "scroll-into-view-if-needed": "^1.0.6"
   },

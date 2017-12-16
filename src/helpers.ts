@@ -1,4 +1,4 @@
-import {path as getPath} from 'ramda'
+import getPath from 'ramda/src/path'
 import {FieldConfig} from './index'
 import {required as requiredError} from './validation'
 
